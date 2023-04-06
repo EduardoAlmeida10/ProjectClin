@@ -31,14 +31,13 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(user));
     }
 
-    @PutMapping
-    public ResponseEntity<User> update(@RequestBody User user){
+    @PutMapping("/{id}")
+    public ResponseEntity<User> update(@PathVariable("id") Long User, @RequestBody User user){
         return ResponseEntity.status(HttpStatus.OK).body(userService.update(user));
     }
 
-    @DeleteMapping
-    public void destroy(Long id){
-        userService.destroy(id);
+    @DeleteMapping("/{id}")
+    public void destroy(@PathVariable("id") Long id){userService.destroy(id);
     }
 
 }

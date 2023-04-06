@@ -47,8 +47,8 @@ public class MedicoController {
         return ResponseEntity.ok(medicoService.update(medico));
     }
 
-    @DeleteMapping
-    public void destroy(Long id){
+    @DeleteMapping("/{id}")
+    public void destroy(@PathVariable("id") Long id){
         medicoService.destroy(id);
     }
 }
