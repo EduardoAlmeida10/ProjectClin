@@ -8,6 +8,8 @@ import lombok.Data;
 @Table(name = "TB_USUARIO")
 public class User {
 
+    //By: João Gabriel
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

@@ -13,6 +13,8 @@ import java.util.List;
 @RequestMapping("/api/v1/users")
 public class UserController {
 
+    //By: João Gabriel
+
     @Autowired
     private UserService userService;
 

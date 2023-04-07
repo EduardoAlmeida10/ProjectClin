@@ -11,6 +11,8 @@ import java.util.Optional;
 @Service
 public class MedicoService {
 
+    //By: João Gabriel
+
     @Autowired
     private MedicoRepository medicoRepository;
 
