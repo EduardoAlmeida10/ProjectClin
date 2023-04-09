@@ -20,12 +20,13 @@ public class Paciente {
     @Column(unique = true)
     private String email;
 
-    @Column
+    @Column(unique = true)
     private String senha;
 
     @Column(unique = true)
     private LocalDateTime consultDate;
 
+    @Column(unique = true)
     private String telefone;
 
     @Column(unique = true)
