@@ -20,7 +20,10 @@ public class User {
     @Column(unique = true)
     private String email;
 
-    @Column(unique = true)
+    @Column
     private String senha;
+
+    private String confirmationToken;
+    private Boolean isConfirmed;
 
 }

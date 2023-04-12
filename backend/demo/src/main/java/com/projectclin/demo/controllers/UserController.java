@@ -18,6 +18,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+
+    @GetMapping("/{token}")
+    public String confirmation(@PathVariable String token){
+        if (userService.existsByConfirmationToken(token)) {
+            return "Sua conta foi ativada! Continue usando nossos serviços.";
+        }
+        return "Código para confirmação nválido!";
+    }
+
     @GetMapping
     public ResponseEntity <List<User>> findAll(){
         return ResponseEntity.status(HttpStatus.OK).body(userService.findAllUsers());
@@ -29,7 +38,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> save(@RequestBody User user){
+    public ResponseEntity<User> save(@RequestBody User user) throws Exception{
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(user));
     }
 
