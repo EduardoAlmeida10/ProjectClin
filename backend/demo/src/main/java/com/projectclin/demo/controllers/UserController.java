@@ -1,6 +1,7 @@
 package com.projectclin.demo.controllers;
 
 import com.projectclin.demo.domain.model.User;
+import com.projectclin.demo.dtos.UserDto;
 import com.projectclin.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,7 +39,11 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> save(@RequestBody User user) throws Exception{
+    public ResponseEntity<User> save(@RequestBody UserDto userDto) throws Exception{
+        User user = new User();
+        user.setNome(userDto.getNome());
+        user.setSenha(userDto.getSenha());
+        user.setEmail(userDto.getEmail());
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(user));
     }
 
